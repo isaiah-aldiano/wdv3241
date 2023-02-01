@@ -45,7 +45,7 @@
 
         $stringObj->stringLength = strlen($someString);
 
-        if(strpos(strtolower($someString), 'dmacc') !== false) { //Apparently heartland webhosting doesn't use php 8
+        if(strpos(strtolower($someString), 'dmacc') !== false) { 
             $stringObj->containsDMACC = 'true';
         } else {
             $stringObj->containsDMACC = 'false';
