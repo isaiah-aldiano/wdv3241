@@ -8,10 +8,10 @@
 
     <?php
     //Input variables from form
-    $dateStyle = $_GET['dateStyle']; 
-    $someString = $_GET['someString'];
-    $phoneNum = preg_replace("/[^0-9]/", "", $_GET['phoneNum']);
-    $currency = preg_replace("/[^0-9]/", "", $_GET['currency']); 
+    $dateStyle = $_POST['dateStyle']; 
+    $someString = $_POST['someString'];
+    $phoneNum = preg_replace("/[^0-9]/", "", $_POST['phoneNum']);
+    $currency = preg_replace("/[^0-9]/", "", $_POST['currency']); 
 
     //Variables to catch returns
     $formattedDate = null;
@@ -42,8 +42,14 @@
         $stringObj = new aString;
 
         $stringObj->formattedString = "'" . trim(strtolower($someString)) . "' ";
+
         $stringObj->stringLength = strlen($someString);
-        $stringObj->containsDMACC = str_contains($stringObj->formattedString, 'dmacc') ? 'true' : 'false';
+
+        if(strpos(strtolower($someString), 'dmacc') !== false) { //Apparently heartland webhosting doesn't use php 8
+            $stringObj->containsDMACC = 'true';
+        } else {
+            $stringObj->containsDMACC = 'false';
+        }
 
         return $stringObj;
     }
@@ -92,7 +98,7 @@
 </head>
 <body>
     
-    <form action="#">
+    <form method="post">
         Select time stamp format: 
         <input type="radio" name="dateStyle" value="USA">
         <label for="dataStyle">American</label>
@@ -114,9 +120,9 @@
         </button>
     </form>
 
-    <h1><?php echo $formattedDate?></h1>
-    <h1><?php echo $stringObject->formattedString . $stringObject->containsDMACC . " " . $stringObject->stringLength?></h1>
-    <h1><?php echo $formattedNum?></h1>
-    <h1><?php echo $formattedCurrency?></h1>
+    <h1><?php echo $formattedDate;?></h1>
+    <h1><?php echo $stringObject->formattedString . $stringObject->containsDMACC . ' ' . $stringObject->stringLength;?></h1>
+    <h1><?php echo $formattedNum;?></h1>
+    <h1><?php echo $formattedCurrency;?></h1>
 </body>
 </html>
