@@ -4,31 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Php functions</title>
 
     <?php
-    //Input variables from form
-    $dateStyle = $_POST['dateStyle']; 
-    $someString = $_POST['someString'];
-    $phoneNum = preg_replace("/[^0-9]/", "", $_POST['phoneNum']);
-    $currency = preg_replace("/[^0-9]/", "", $_POST['currency']); 
-
-    //Variables to catch returns
-    $formattedDate = null;
-    $stringObject = null;
-    $formattedNum = null;
-    $formattedCurrency = null;
-
     function formatDate($dateStyle) {
-        date_default_timezone_set('America/Chicago');
+        $date = date_create($dateStyle);
 
-        if ($dateStyle == 'USA') {
-            $dateStyle= date('m/d/Y', time());
-        } else if ($dateStyle == 'EU') {
-            $dateStyle = date('d/m/Y', time());
-        }
+        $dateStyle = date_format($date, 'd/m/Y');
 
-        return $dateStyle;
+        echo $dateStyle;
+    }
+
+    function formatDateUS($dateStyle) {
+        $date = date_create($dateStyle);
+
+        $dateStyle = date_format($date, 'm/d/Y');
+
+        echo $dateStyle;
     }
 
     //String class to return values
@@ -51,7 +43,7 @@
             $stringObj->containsDMACC = 'false';
         }
 
-        return $stringObj;
+        echo $stringObj->formattedString . $stringObj->containsDMACC . ' ' . $stringObj->stringLength;
     }
     //Takes in a phone number and formats it to (xxx) xxx-xxxx
     function formatPhone($phoneNum) {
@@ -61,68 +53,30 @@
             $phoneNum = "*Error occured - Not enough characters entered*";
         }
 
-        return $phoneNum;
+        echo $phoneNum;
     }
     //Takes in a number and formats it to American currency
     function formatCurrency($currency) {
         $currency = number_format($currency, 2, '.', ',');
 
-        return $currency;
-    }
-
-    if (strlen($dateStyle) > 0) {
-        $formattedDate = formatDate($dateStyle);
-    }
-
-    if(strlen($someString) > 0) {
-        $stringObject = formatString($someString);
-    }
-
-    if(strlen($phoneNum) > 0) {
-        $formattedNum = formatPhone($phoneNum);
-    }
-
-    if(strlen($currency) > 0) {
-        $formattedCurrency = "$" . formatCurrency($currency);
+        echo $currency;
     }
     ?>
 
     <style>
-        form {
+        body {
             background-color: lightgray;
-            border: 1px solid black;
-            max-width: 400px;
-            padding: 5px;
+            
         }
     </style>
 </head>
 <body>
-    
-    <form method="post">
-        Select time stamp format: 
-        <input type="radio" name="dateStyle" value="USA">
-        <label for="dataStyle">American</label>
-
-        <input type="radio" name="dateStyle" value="EU">
-        <label for="dateStyle">European</label><br>
-
-        <label for="someString">Enter a string: </label>
-        <input type="text" name="someString"><br>
-
-        <label for="phoneNum">Enter a phone number: </label>
-        <input type="text" name="phoneNum"><br>
-
-        <label for="currency">Enter some dollar amount</label>
-        <input type="text" name="currency"><br>
-        
-        <button type="submit">Submit</button>
-        <button type="submit">Clear</button>
-        </button>
-    </form>
-
-    <h1><?php echo $formattedDate;?></h1>
-    <h1><?php echo $stringObject->formattedString . $stringObject->containsDMACC . ' ' . $stringObject->stringLength;?></h1>
-    <h1><?php echo $formattedNum;?></h1>
-    <h1><?php echo $formattedCurrency;?></h1>
+    <?php formatDate('23-3-1993')?></br>
+    <?php formatDateUS('23-3-3034')?><br>
+    <?php formatString('      THIS STRING CONTAINS DMACC YUHHHHH')?><br>
+    <?php formatString('      THIS STRING does not')?><br>
+    <?php formatPhone('1234567890')?><br>
+    <?php formatPhone('515432')?><br>
+    <?php formatCurrency(123456)?>
 </body>
 </html>
