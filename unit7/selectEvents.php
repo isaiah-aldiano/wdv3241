@@ -41,7 +41,7 @@
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-        $sql = ('SELECT id, name, presenter, description FROM wdv341_events');
+        $sql = ('SELECT * FROM wdv341_events');
 
         $results = $conn->query($sql);
         if ($results->rowCount() > 0)
@@ -50,6 +50,10 @@
             <th>NAME</th>
             <th>PRESENTER</th>
             <th>DESCRIPTION</th>
+            <th>DATE</th>
+            <th>TIME</th>
+            <th>DATE ADDED</th>
+            <th>DATE UPDATED</th>
             </tr> ';
         
             while ($row = $results->fetch()) {
@@ -57,7 +61,11 @@
                     <td>' . $row['id'] . '</td>
                     <td>' . $row['name'] . '</td>
                     <td>' . $row['presenter'] . '</td>
-                    <td class="description">' . $row['description'] .  '</td>
+                    <td>' . $row['description'] . '</td>
+                    <td>' . $row['date'] . '</td>
+                    <td>' . $row['time'] . '</td>
+                    <td>' . $row['date_inserted'] . '</td>
+                    <td>' . $row['date_updated'] . '</td>
                 </tr>';
             }
         }
