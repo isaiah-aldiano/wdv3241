@@ -44,18 +44,6 @@
         It will be replaced by the actual data. Please loop through all of your products and display them using
         this layout and following the instructions of the assignment. -->
 
-        <div class="productBlock">
-            <div class="productImage">
-                <image src="productImages/monitor.jpg">
-            </div>
-            <p class="productName">New 27" Monitor</p>
-            <p class="productDesc">This is a new monitor. Available for desktop uses. A good choice for home office and school work.</p>
-            <p class="productPrice">$159.00</p>
-            <!-- The productStatus element should only be displayed if there is product_status data in the record -->
-            <p class="productStatus">New Item!</p>            
-            <p class="productInventory"># In Stock!</p>
-        </div>
-
         <?php 
             if($allInfo->num_rows > 0) {
                while($row = $allInfo->fetch_assoc()) {

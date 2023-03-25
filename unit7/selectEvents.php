@@ -21,9 +21,9 @@
         border-left:2px solid black; 
     }
 
-    table tr + tr {
+    /* table tr + tr {
         
-    }
+    } */
 </style>
 <body>
 
