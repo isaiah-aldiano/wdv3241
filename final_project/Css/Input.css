@@ -1,0 +1,99 @@
+body {
+    background-color: #FFE5DE;
+}
+
+#RecipeForm {
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+    border: 3px solid #5f1717;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(95, 23, 23, .2);
+}
+
+#RecipeForm input {
+    padding: 3px;
+    border-radius: 4px;
+    border: none;
+    
+}
+
+
+#RecipeForm label {
+    padding-top: 3px;
+    font-size: 20px;
+}
+
+
+#FormSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#FormTime {
+    padding-top: 3px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#FormTime select {
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    margin-left: 3px;
+}
+
+#FormTime input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#AllIngredients, #AllInstructions {
+    display: flex;
+    flex-direction: column;
+}
+
+#AllIngredients div input, button{
+    margin-top: 3px;
+    padding: 3px;
+    border: none;
+    border-radius: 4px;
+}
+
+#AllInstructions div input, button {
+    margin-top: 3px;
+    padding: 3px;
+    border: none;
+    border-radius: 4px;
+}
+
+#AllInstructions div, #AllIngredients div  {
+    display: flex;
+}
+
+#AllInstructions div input, #AllIngredients div input {
+    min-width: 82%;
+    margin-right: 2px;
+}
+
+#AllInstructions div button, #AllIngredients div button{
+    margin-left: 2px;
+    min-width: 15%;
+}
+
+#NameError, #DiffError, #IngredientError, #InstructionError {
+    color: rgb(148, 26, 26);
+}
+
+#honeypot {
+    display: none;
+}
+
+#submit {
+    margin-top: 10px;
+}

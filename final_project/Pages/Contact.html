@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/Navbar.css">
+    <link rel="stylesheet" href="../Css/Contact.css">
+    <script src="../JS/Contact.js"></script>
+    <title>Contact Us</title>
+</head>
+<body>
+    <nav>
+        <a href="#" id="title">Kitchen Cache</a>
+        <ul>
+            <li>
+                <a href="RecipeHome.php">Home</a>
+            </li>
+            <li>
+                <a href="Contact.html">Contact Us</a>
+            </li>
+            <li>
+                <a href="#">All Recipes</a>
+            </li>
+            <li>
+                <a href="RecipeInput.php">Input Recipe</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div id="FormSection">
+        <h1>Contact Us</h1>
+        <form action="" method="post" id="ContactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="text" rows="10" required></textarea>
+
+            <input type="hidden" id="honeypot" name="honeypot">
+
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
+
+    <div id="ThankYouResponse">
+
+    </div>
+
+    
+</body>
+</html>

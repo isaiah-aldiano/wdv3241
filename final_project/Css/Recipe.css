@@ -1,0 +1,108 @@
+body {
+    background-color: #FFE5DE;
+}
+
+#RecipeSection {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#RecipeTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Image img{
+    max-width: 600px;
+    max-height: 400px;
+    border-radius: 10px;
+}
+
+#servings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+#info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#info h1 + h1 {
+    margin-top: -3px;
+}
+
+#options {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: row; */
+    /* justify-content: space-between; */
+    
+}
+
+#lists {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid #5f1717;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(95, 23, 23, .2);
+    width: 450px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.tab {
+    font-size: 40px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+#IngredientButton {
+    background-color: rgb(95, 23, 23, .5);
+}
+
+#InstructionButton, #IngredientButton {
+    border-radius: 14px;
+}
+
+#Ingredients {
+    display: inline;
+    background: none;
+
+}
+
+#Instructions {
+    display: none;
+}
+
+#Ingredients ul li, #Instructions ul li {
+    font-size: 30px;
+}
+#Ingredients ul, #Instructions ul {
+    margin: 20px 0;
+    padding: 0;
+    text-align: left;
+}
+
